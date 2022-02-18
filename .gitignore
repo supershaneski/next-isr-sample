@@ -1,0 +1,6 @@
+public/
+node_modules/
+.next/
+_bin/
+.env*.local
+.DS_Store
