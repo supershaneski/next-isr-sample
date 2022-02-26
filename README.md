@@ -1,7 +1,27 @@
 next-isr-app
 ============
 
-This app will try to explore [Incremental Static Regeneration](https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration)(ISR) in Next.js which lets the developer to update static pages ***without the need to rebuild the entire site***.
+This exercise will try to explore [Incremental Static Regeneration](https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration)(ISR) in Next.js which lets the developer to update static pages ***without the need to rebuild the entire site***.
+
+### Usage
+
+```javascript
+export async function getStaticProps() {
+    const res = await fetch('https://...')
+    const posts = await res.json()
+
+    return {
+        props: {
+            posts,
+        },
+        revalidate: 10, // 10 seconds
+    }
+}
+```
+
+## Project Notes
+
+- *2022-02-26*: Added more contents to illustrate the basic types of page rendering.
 
 ## Installation
 
