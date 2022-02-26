@@ -26,6 +26,11 @@ function Page(props)  {
                             </Link>
                         </li>
                         <li>
+                            <Link href="/on-demand-isr">
+                                <a className={[classes.link, classes.new].join(' ')}>On-demand Incremental Static Regeneration (On-demand ISR)</a>
+                            </Link>
+                        </li>
+                        <li>
                             <Link href="/server-side-rendering">
                                 <a className={classes.link}>Server-side Rendering</a>
                             </Link>

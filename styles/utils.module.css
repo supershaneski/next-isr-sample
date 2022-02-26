@@ -57,3 +57,39 @@
     width: 300px;
     height: 200px;
 }
+.new::after {
+    content: 'new';
+    display: inline-block;
+    margin-left: 0.5em;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: #FF6767;
+    transform: skew(20deg, -20deg) translateY(-5px);
+    animation: blink 0.45s linear infinite;
+}
+
+@keyframes blink {
+    0% { color: #f66; }
+    100% { color: #fff; }
+}
+
+.buildPanel {
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+}
+.build {
+    border: 0;
+    background-color: #f66;
+    color: #fff;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+}
+.build:active {
+    transform: translateY(2px);
+}
+.error {
+    text-align: center;
+}

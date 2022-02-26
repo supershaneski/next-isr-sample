@@ -21,7 +21,10 @@ export async function getStaticProps() {
 
 ## Project Notes
 
+- *2022-02-26*: Added On-Demand ISR sample.
+
 - *2022-02-26*: Added more contents to illustrate the basic types of page rendering.
+
 
 ## Installation
 
