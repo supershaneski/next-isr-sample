@@ -9,7 +9,7 @@ function Page(props)  {
             <div className={classes.container}>
                 <section>
                     <h4>Next.js Page Rendering</h4>
-                    <ul>
+                    <ul className={classes.list}>
                         <li>
                             <Link href="/pure-static">
                                 <a className={classes.link}>Pure Static</a>
@@ -18,6 +18,11 @@ function Page(props)  {
                         <li>
                             <Link href="/static-site-generation">
                                 <a className={classes.link}>Static-site Generation (Build-time) / Dynamic Routing</a>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="/isr-static-site-generation">
+                                <a className={[classes.link, classes.new].join(' ')}>Static-site Generation (For On-demand ISR verification)</a>
                             </Link>
                         </li>
                         <li>

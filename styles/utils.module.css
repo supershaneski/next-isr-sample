@@ -2,6 +2,10 @@
     position: relative;
 }
 
+.list li {
+    margin-bottom: 1em;
+}
+
 .link {
     color: #4dffff;
     text-decoration: none;

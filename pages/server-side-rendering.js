@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import classes from '../styles/utils.module.css'
-import { tasksRepo } from '../lib/dummy'
+import { getTasks } from '../lib/utils'
 
-export default function Page({ date, tasks }) {
+export default function Page({ fetchDate, date, tasks }) {
 
     return (
         <>
@@ -53,6 +53,7 @@ export default function Page({ date, tasks }) {
                             </tbody>
                         </table>
                     </section>
+                    <p>Date Fetched: { fetchDate }</p>
                     <p>Date Generated: { date }</p>
                 </section>
             </div>
@@ -62,14 +63,15 @@ export default function Page({ date, tasks }) {
 
 export async function getServerSideProps() {
 
-    const tasks = tasksRepo.getTasks()
-
+    const tasks = await getTasks() //tasksRepo.getTasks()
+    
     const date = (new Date()).toISOString()
 
     return {
         props: {
+            fetchDate: tasks.date,
             date,
-            tasks
+            tasks: tasks.items,
         }
     }
 }

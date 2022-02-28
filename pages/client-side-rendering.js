@@ -1,22 +1,7 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import classes from '../styles/utils.module.css'
-
-const getTasks = async () => {
-    const res = await fetch('/api/tasks')
-    return await res.json()
-}
-
-const addTask = async (task) => {
-    const res = await fetch('/api/addTask', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            task: task,
-        })
-    })
-    return await res.json()
-}
+import { getTasks, addTask } from '../lib/utils'
 
 export default function Page() {
 
@@ -24,6 +9,7 @@ export default function Page() {
     const [tasks, setTasks] = useState([])
     const [openAdd, setOpenAdd] = useState(false)
     const [taskItem, settaskItem] = useState("")
+    const [fetchDate, setFetchDate] = useState("")
 
     useEffect(() => {
         
@@ -50,6 +36,7 @@ export default function Page() {
         getTasks().then(data => {
             
             setTasks(data.items)
+            setFetchDate(data.date)
 
         }).catch(error => {
             console.log(error)
@@ -97,6 +84,7 @@ export default function Page() {
                 {
                     isLoaded &&
                     <section>
+                        <p>Fetched Date: { fetchDate }</p>
                         <table className={classes.table}>
                             <thead>
                                 <tr>

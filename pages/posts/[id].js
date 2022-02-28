@@ -8,8 +8,6 @@ export default function Page({ post, dateModified }) {
 
     const router = useRouter()
 
-    //console.log(post, dateModified)
-
     return (
         <>
             <Head>

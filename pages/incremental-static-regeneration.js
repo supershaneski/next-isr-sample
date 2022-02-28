@@ -23,7 +23,7 @@ export default function Page({ posts, dateModified }) {
                     </p>
                     <section>
                         <h4>Content List</h4>
-                        <p>Date Generated: { dateModified }</p>
+                        <p>Date Generated: { dateModified } (This should change by the interval set in <strong>revalidate</strong> at <strong>getStaticProps</strong>)</p>
                         <ol>
                         {
                             posts.map(item => {
