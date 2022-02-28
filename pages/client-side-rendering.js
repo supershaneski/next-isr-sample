@@ -6,6 +6,7 @@ import { getTasks, addTask } from '../lib/utils'
 export default function Page() {
 
     const [isLoaded, setIsLoaded] = useState(false)
+    const [isAdded, setIsAdded] = useState(false)
     const [tasks, setTasks] = useState([])
     const [openAdd, setOpenAdd] = useState(false)
     const [taskItem, settaskItem] = useState("")
@@ -17,7 +18,7 @@ export default function Page() {
 
     }, [])
 
-    useEffect(() => {
+    /*useEffect(() => {
 
         const timer = setTimeout(() => {
 
@@ -29,12 +30,13 @@ export default function Page() {
             clearTimeout(timer)
         }
 
-    }, [tasks])
+    }, [tasks])*/
 
     const getTaskData = () => {
 
         getTasks().then(data => {
             
+            setIsLoaded(true)
             setTasks(data.items)
             setFetchDate(data.date)
 
@@ -46,11 +48,13 @@ export default function Page() {
 
     const handleSubmit = () => {
 
+        setIsAdded(true)
+
         addTask(taskItem).then(data => {
 
-            setIsLoaded(false)
-            getTaskData()
             setOpenAdd(false)
+            getTaskData()
+            setIsAdded(false)
 
         }).catch(error => { 
             console.log(error)
@@ -137,6 +141,12 @@ export default function Page() {
                                 </div>
                             </div>
                         </div>
+                    </div>
+                }
+                {
+                    isAdded &&
+                    <div className={classes.loader}>
+                        <div className={classes.adding}>Adding...</div>
                     </div>
                 }
             </div>
