@@ -23,6 +23,8 @@ export async function getStaticProps() {
 
 ## Project Notes
 
+- *2022-03-12*: update README
+
 - *2022-02-28*: Changed mock data using JSON file to remote server to clearly show on-demand ISR.
 
 - *2022-02-26*: Added On-Demand ISR sample.
